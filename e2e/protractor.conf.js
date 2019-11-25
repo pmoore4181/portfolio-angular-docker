@@ -1,8 +1,5 @@
 const { SpecReporter } = require('jasmine-spec-reporter');
 
-/**
- * @type { import("protractor").Config }
- */
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
@@ -10,6 +7,7 @@ exports.config = {
   ],
   capabilities: {
     'browserName': 'chrome',
+    // new
     'chromeOptions': {
       'args': [
         '--no-sandbox',
@@ -28,7 +26,7 @@ exports.config = {
   },
   onPrepare() {
     require('ts-node').register({
-      project: require('path').join(__dirname, './tsconfig.json')
+      project: require('path').join(__dirname, './tsconfig.e2e.json')
     });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
   }
