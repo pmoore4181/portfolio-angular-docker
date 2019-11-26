@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
 
-  example:
-    container_name: example
+  portfolio:
+    container_name: portfolio
     build:
       context: .
       dockerfile: Dockerfile
